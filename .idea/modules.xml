@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DashboardWeb/DashboardWeb.iml" filepath="$PROJECT_DIR$/DashboardWeb/DashboardWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Persistance_RealTime/Persistance_RealTime.iml" filepath="$PROJECT_DIR$/Persistance_RealTime/Persistance_RealTime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spark_Stream/Spark_Stream.iml" filepath="$PROJECT_DIR$/Spark_Stream/Spark_Stream.iml" />
+    </modules>
+  </component>
+</project>

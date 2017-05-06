@@ -13,6 +13,7 @@ public class AuthentificationForm {
         this.password = password;
     }
     public boolean isDoctor(){
+
         if(pseudo.toLowerCase().equals("oussama") && password.equals("oussama")){
             return true;
         }
