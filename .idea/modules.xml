@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DashboardWeb/DashboardWeb.iml" filepath="$PROJECT_DIR$/DashboardWeb/DashboardWeb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Persistance_RealTime/Persistance_RealTime.iml" filepath="$PROJECT_DIR$/Persistance_RealTime/Persistance_RealTime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RealTimeSocket/RealTimeSocket.iml" filepath="$PROJECT_DIR$/RealTimeSocket/RealTimeSocket.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spark_Stream/Spark_Stream.iml" filepath="$PROJECT_DIR$/Spark_Stream/Spark_Stream.iml" />
     </modules>
   </component>
