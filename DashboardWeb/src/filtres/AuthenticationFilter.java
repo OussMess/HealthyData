@@ -11,7 +11,7 @@ import java.io.IOException;
 /* Created by Oussama on 01/05/2017. */
 
 @WebFilter(filterName = "AuthenticationFilter", urlPatterns = {"/*"}, initParams = {
-        @WebInitParam(name = "encoding", value = "utf-8"),
+        @WebInitParam(name = "encoding", value = "UTF-8"),
         @WebInitParam(name = "ignore", value = "false")
 })
 public class AuthenticationFilter implements Filter {

@@ -9,6 +9,7 @@ public class AuthentificationForm {
     String password;
 
     public AuthentificationForm(String pseudo, String password) {
+
         this.pseudo = pseudo;
         this.password = password;
     }

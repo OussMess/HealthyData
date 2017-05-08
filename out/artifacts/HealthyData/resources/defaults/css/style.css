@@ -192,4 +192,7 @@ li.collection-item.dismissable {
         margin-right: 15px;
     }
 }
+.row .col.s9 {
+    width: 90%;
+}
 

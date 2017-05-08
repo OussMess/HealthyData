@@ -15,6 +15,7 @@ var Patient = {
 
     init: function (id) {
         this.id = id;
+        this.capteurs = [];
         jQuery.ajaxSetup({async:false});
         $.get("/HealthyData/patient?idPatient="+id, function(data, status){
 
@@ -24,22 +25,41 @@ var Patient = {
             patientSelected.adresse = $(data).children("adress").text();
             patientSelected.taille = $(data).children("height").text();
             patientSelected.weight = $(data).children("weight").text();
+            $(data).children("sensor").each(function (indice, element) {
+                var capteur = Object.create(Capteur);
+                capteur.init($(element).attr("id"), $(element).attr("name"));
+                patientSelected.capteurs.push(capteur);
+                $(element).children("mesure").each(function (index, measureServer) {
+                    var mesure = Object.create(Mesure);
+                    mesure.idCapteur = capteur;
+                    mesure.type = $(measureServer).text();
+                    capteur.addMesure(mesure)
+                })
+            })
 
         });
-
-        this.capteurs = [];
         this.mesureSelected = [];
-        this.setCapteurs(id);
 
     },
     addMesure: function (capter, me) {
         var mesure = Object.create(Mesure);
+        mesure.init();
         mesure.idCapteur = capter;
         mesure.type = me;
         this.mesureSelected.push(mesure);
         $("#tabsMesure").append('<li class="tab col s3"><a class="active" href="#c' + capter + 'm' + mesure.type + '">' + mesure.type + '</a></li>');
-        $("#tabsMesure").parent().parent().append('<div id="c' + capter + 'm' + mesure.type + '" class="col s9" style="height: 300px;"></div>');
+        $("#tabsMesure").parent().parent().append('<div id="c' + capter + 'm' + mesure.type + '" class="col s9" style=""></div>');
         $('ul.tabs').tabs('select_tab', 'c' + capter + 'm' + mesure.type);
+        var socket = new WebSocket("ws://localhost:8080/RealTimeSocket/measure");
+        socket.onmessage = function (event) {
+            mesure.addInformation(event.data);
+            drawChart('c' + capter + 'm' + mesure.type, mesure);
+        };
+        socket.onopen = function(){
+            socket.send(patientSelected.id+";"+mesure.idCapteur+";"+mesure.type);
+        }
+
+
     },
 
     setCapteurs: function (id) {
@@ -104,12 +124,6 @@ var Patient = {
         });
 
         resizeLeftSlideBar();
-    },
-
-    showData: function () {
-        this.mesureSelected.forEach(function (mesure) {
-            mesure.showData();
-        });
     }
 
 };

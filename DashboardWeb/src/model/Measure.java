@@ -16,6 +16,6 @@ public class Measure {
     public Measure(Sensor sensor, String type) {
         this.sensor = sensor;
 
-        this.type = "measure" + type;
+        this.type =type;
     }
 }

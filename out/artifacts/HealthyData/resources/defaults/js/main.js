@@ -3,6 +3,30 @@
  */
 var patientSelected;
 
+var drawChart = function(element, mesure){
+    google.charts.load('current', {'packages':['line']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('timeofday', 'Temps');
+        data.addColumn('number', mesure.type);
+
+        data.addRows(mesure.information);
+
+        var options = {
+            title: mesure.type,
+            height: 300,
+            weight: 450
+        };
+
+        var chart = new google.charts.Line(document.getElementById(element));
+
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+};
+
 // Initialize collapse button
 $(".button-collapse").sideNav();
 $(".button-collapse-left").sideNav({
@@ -41,5 +65,6 @@ $('#slide-out li a').click(function () {
     $(this).parent().addClass("teal lighten-2");
     $(".tabs .tab.disabled").removeClass("disabled");
 });
+
 
 

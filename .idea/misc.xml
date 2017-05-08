@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Spark_Stream/pom.xml" />
+        <option value="$PROJECT_DIR$/DashboardWeb/pom.xml" />
       </list>
     </option>
   </component>

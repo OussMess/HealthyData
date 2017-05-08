@@ -7,33 +7,19 @@ var Mesure = {
     idCapteur: null,
     tab: null,
 
-    init: function (idCap, id) {
-        this.type = "mesure" + idCap + "-" + id;
+    init: function () {
+        this.information = [];
     },
+    addInformation: function (data) {
+        var datas = data.split(";");
+        var date = new Date(data[0]);
+        var time= [date.getHours() , date.getMinutes(), date.getSeconds()];
 
-    showData: function () {
-        google.charts.load('current', {'packages': ['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        var mesure = this;
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Year', 'Sales', 'Expenses'],
-                ['2004', 1000, 400],
-                ['2005', 1170, 460],
-                ['2006', 660, 1120],
-                ['2007', 1030, 540]
-            ]);
-
-            var options = {
-                title: 'Battement de coeur',
-                curveType: 'Cardiologie',
-                legend: {position: 'bottom'}
-            };
-            console.log('c' + mesure.idCapteur + 'm' + mesure.type);
-            var chart = new google.visualization.LineChart(document.getElementById('c' + mesure.idCapteur + 'm' + mesure.type));
-            chart.draw(data, options);
-        }
+        var donnee = datas[1];
+        var info = [];
+        info.push(time);
+        info.push(donnee);
+        this.information.push(info);
     }
 
 

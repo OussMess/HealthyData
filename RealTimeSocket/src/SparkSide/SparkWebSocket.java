@@ -36,16 +36,17 @@ public class SparkWebSocket {
     @OnMessage
     public void handleMessage(String message, Session session) throws IOException {
         System.out.println(message);
-        /*String[] str = message.split(":");
-        String data = str[1];
-        String[] keys = str[0].split(";");
+        String[] str = message.split("[:]");
+        String data = str[2];
+        String[] keys = str[1].split("[;]");
+        String time = str[0];
         Set<SessionData> sessionDataSet = sessionHandler.findByKey(keys[0], keys[1], keys[2]);
         if(sessionDataSet == null){
             return;
         }
         for(SessionData sessionData : sessionDataSet){
-            sessionData.sendData(data);
-        }*/
+            sessionData.sendData(time +";" +data);
+        }
 
     }
 }
