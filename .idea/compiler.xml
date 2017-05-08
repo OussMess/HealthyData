@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="DashboardWeb" target="1.5" />
+      <module name="DashboardWeb" target="1.7" />
       <module name="Spark_Stream" target="1.7" />
     </bytecodeTargetLevel>
   </component>
