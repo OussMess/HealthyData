@@ -53,11 +53,12 @@ var Patient = {
         var socket = new WebSocket("ws://localhost:8080/RealTimeSocket/measure");
         socket.onmessage = function (event) {
             mesure.addInformation(event.data);
-            drawChart('c' + capter + 'm' + mesure.type, mesure);
+
         };
         socket.onopen = function(){
             socket.send(patientSelected.id+";"+mesure.idCapteur+";"+mesure.type);
         }
+        drawChart('c' + capter + 'm' + mesure.type, mesure);
 
 
     },

@@ -2,6 +2,7 @@ package servlets;
 
 import forms.AuthentificationForm;
 import model.Doctor;
+import mongo.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,10 +17,17 @@ public class AuthenticationServlet extends HttpServlet {
     public static final String ACCES_CONNEXION    = "/connexion.jsp";
     public static final String ACCES_DASHBOARD   = "/HealthyData/dashboard";
 
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        Connection.init();
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AuthentificationForm authentificationForm = new AuthentificationForm(request.getParameter("pseudo"), request.getParameter("password"));
-        if(authentificationForm.isDoctor()){
-            request.getSession().setAttribute("doctor", new Doctor("1"));
+        Doctor doctor = authentificationForm.getDoctor();
+        if(doctor !=null){
+            request.getSession().setAttribute("doctor", doctor);
             response.sendRedirect(ACCES_DASHBOARD);
         }
         else{

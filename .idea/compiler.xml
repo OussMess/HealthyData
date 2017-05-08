@@ -6,13 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="DashboardWeb" />
         <module name="Spark_Stream" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="DashboardWeb" target="1.7" />
-      <module name="Spark_Stream" target="1.7" />
+      <module name="DashboardWeb" target="1.8" />
+      <module name="Spark_Stream" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

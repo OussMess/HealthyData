@@ -10,10 +10,15 @@ var drawChart = function(element, mesure){
     function drawChart() {
 
         var data = new google.visualization.DataTable();
-        data.addColumn('timeofday', 'Temps');
+        data.addColumn('number', 'Temps');
         data.addColumn('number', mesure.type);
 
-        data.addRows(mesure.information);
+        data.addRows([
+            [10, 5],
+            [12, 10],
+            [13, 32],
+            [15, 42]
+            ]);
 
         var options = {
             title: mesure.type,
