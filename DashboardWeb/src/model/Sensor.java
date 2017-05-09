@@ -1,6 +1,9 @@
 package model;/* Created by Oussama on 02/05/2017. */
 
+import com.mongodb.DBObject;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Sensor {
@@ -8,18 +11,16 @@ public class Sensor {
     private String name;
     private List<Measure> measureList;
 
-    public Sensor(String id) {
-        this.id = id;
-        this.name = "Sensor" + id;
-        setMeasureList();
+
+    public Sensor(DBObject document){
+        this.id = (String)document.get("_id");
+        this.name = (String)document.get("name");
+        this.measureList = new ArrayList<>();
+
     }
 
-    public void setMeasureList() {
-        this.measureList = new ArrayList<>();
-        for(int i = 0; i<50; i++){
-            Measure measure = new Measure(this, this.id + "-" + Integer.toString(i));
-            this.measureList.add(measure);
-        }
+    public void addMeasure(Measure measure){
+        this.measureList.add(measure);
     }
 
     public List<Measure> getMeasureList() {

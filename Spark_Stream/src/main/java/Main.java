@@ -42,7 +42,7 @@ public class Main {
     }
 
     public static void setSpark() {
-        SparkConf sparkConf = new SparkConf().setAppName("JavaNetworkWordCount");
+        SparkConf sparkConf = new SparkConf().setAppName("NetworkMeasureData");
         sparkConf.setMaster("local[2]");
         Logger.getLogger("org").setLevel(Level.OFF);
         Logger.getLogger("akka").setLevel(Level.OFF);

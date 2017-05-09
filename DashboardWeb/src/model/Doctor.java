@@ -1,5 +1,8 @@
 package model;/* Created by Oussama on 30/04/2017. */
 
+import com.mongodb.DBObject;
+import mongo.Connection;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +16,14 @@ public class Doctor {
     private List<Patient> patientList;
     private Patient selectedPatient;
 
-    public Doctor(String id) {
 
-        this.id = id;
-        this.name="Fatima Kalai";
+    public Doctor(DBObject document) {
+        this.id = (String)document.get("_id");
+        this.name = (String)document.get("name");
+        this.hopital = (String)document.get("hospital");
+        this.specialite = (String)document.get("speciality");
+        this.service = (String)document.get("service");
         this.patientList= new ArrayList<>();
-        this.setPatientList();
-
     }
 
     public String getId() {
@@ -38,12 +42,8 @@ public class Doctor {
         this.name = name;
     }
 
-    public void setPatientList() {
-
-        for(int i=1;i<=50;i++){
-            Patient patient = new Patient(i+"");
-            patientList.add(patient);
-        }
+    public void addPatient(Patient patient) {
+        this.patientList.add(patient);
     }
 
     public Patient getSelectedPatient() {

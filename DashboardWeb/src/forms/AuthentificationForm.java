@@ -1,6 +1,7 @@
 package forms;/* Created by Oussama on 01/05/2017. */
 
 import model.Doctor;
+import mongo.Connection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,6 @@ public class AuthentificationForm {
         this.password = password;
     }
     public Doctor getDoctor(){
-        if(this.pseudo.equals("ouss") && this.password.equals("ouss")){
-            return new Doctor("1");
-        }
-        return null;
+        return Connection.getDoctor(this.pseudo, this.password);
     }
 }

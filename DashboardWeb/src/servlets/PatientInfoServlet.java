@@ -23,6 +23,7 @@ public class PatientInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Doctor doctor = (Doctor) request.getSession().getAttribute("doctor");
         doctor.setSelectedPatient( doctor.findPatientById(request.getParameter("idPatient")));
+        doctor.getSelectedPatient().setSensorList();
         this.getServletContext().getRequestDispatcher( ACCES_PATIENT_DATA ).include( request, response );
 
     }
