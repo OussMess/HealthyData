@@ -1,36 +1,8 @@
 /**
  * Created by Oussama on 23/04/2017.
  */
-var patientSelected;
+var patientSelected =null;
 
-var drawChart = function(element, mesure){
-    google.charts.load('current', {'packages':['line']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-
-        var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Temps');
-        data.addColumn('number', mesure.type);
-
-        data.addRows([
-            [10, 5],
-            [12, 10],
-            [13, 32],
-            [15, 42]
-            ]);
-
-        var options = {
-            title: mesure.type,
-            height: 300,
-            weight: 450
-        };
-
-        var chart = new google.charts.Line(document.getElementById(element));
-
-        chart.draw(data, google.charts.Line.convertOptions(options));
-    }
-};
 
 // Initialize collapse button
 $(".button-collapse").sideNav();
@@ -61,7 +33,14 @@ $('#loginDropDown').dropdown({
 resizeLeftSlideBar();
 
 $('#slide-out li a').click(function () {
-
+    if(patientSelected !=null && patientSelected.mesureSelected != null){
+        patientSelected.mesureSelected.forEach(function (p1, p2, p3) {
+            var id = "#c"+p1.idCapteur.id + "m" + p1.id;
+            $("a[href='"+id+"']").parent().remove();
+            $(id).remove();
+            p1.socket.close();
+        });
+    }
     patientSelected = Object.create(Patient);
     patientSelected.init($(this).attr("id"));
     console.log(patientSelected);

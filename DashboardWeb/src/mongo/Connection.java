@@ -25,7 +25,7 @@ public class Connection {
         DBObject doctorDocument = db.getCollection("doctor").findOne(fields);
         if(doctorDocument != null){
             Doctor doctor = new Doctor(doctorDocument);
-            for(Object idPatient : (List<Object>)doctorDocument.get("Patients")){
+            for(Object idPatient : (List<Object>)doctorDocument.get("patients")){
                 Patient patient = getPatient((String)idPatient);
                 doctor.addPatient(patient);
             }
@@ -52,6 +52,7 @@ public class Connection {
         DBObject patientDocument = db.getCollection("patient").findOne(fields);
         if(patientDocument != null){
             BasicDBList idSensor = (BasicDBList)patientDocument.get("sensors");
+
             for(Object id : idSensor){
                 Sensor sensor = getSensor((String)id);
 

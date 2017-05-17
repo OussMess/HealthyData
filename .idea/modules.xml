@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AdminWeb/AdminWeb.iml" filepath="$PROJECT_DIR$/AdminWeb/AdminWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/DashboardWeb/DashboardWeb.iml" filepath="$PROJECT_DIR$/DashboardWeb/DashboardWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Flux_Virtuel/Flux_Virtuel.iml" filepath="$PROJECT_DIR$/Flux_Virtuel/Flux_Virtuel.iml" />
       <module fileurl="file://$PROJECT_DIR$/RealTimeSocket/RealTimeSocket.iml" filepath="$PROJECT_DIR$/RealTimeSocket/RealTimeSocket.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spark_Stream/Spark_Stream.iml" filepath="$PROJECT_DIR$/Spark_Stream/Spark_Stream.iml" />
     </modules>

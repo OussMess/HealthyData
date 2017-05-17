@@ -35,7 +35,7 @@ public class SessionData {
     }
 
     public boolean isTheOne(String idPatient, String idSensor, String idMeasure){
-        if(this.idPatient.equals(idPatient)){
+        if(this.idPatient.equals(idPatient) && this.idMeasure.equals(idMeasure) && this.idSensor.equals(idSensor)){
             return true;
         }
         return false;

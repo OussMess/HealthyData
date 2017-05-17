@@ -9,9 +9,9 @@
         <module name="Spark_Stream" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="DashboardWeb" target="1.8" />
-      <module name="Spark_Stream" target="1.8" />
+      <module name="Spark_Stream" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

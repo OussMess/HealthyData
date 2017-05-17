@@ -40,7 +40,7 @@ public class Patient {
         this.weight = (Double) document.get("weight");
         this.height = (Double) document.get("height");
         this.birthday = new Date((String)document.get("birthday"));
-        this.sensorList =  new ArrayList<>();
+
 
     }
     public void addSensor(Sensor sensor){
@@ -48,6 +48,7 @@ public class Patient {
     }
 
     public void setSensorList(){
+        this.sensorList =  new ArrayList<>();
         Connection.getSensorList(this);
     }
 

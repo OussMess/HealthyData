@@ -6,6 +6,10 @@ var Mesure = {
     information: null,
     idCapteur: null,
     tab: null,
+    id:null,
+    socket: null,
+    seuil:null,
+    unit:null,
 
     init: function () {
         this.information = [];

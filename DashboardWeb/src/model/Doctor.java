@@ -12,10 +12,20 @@ public class Doctor {
     private String hopital;
     private String specialite;
     private String service;
+    private String mail;
+    private String tel;
 
     private List<Patient> patientList;
     private Patient selectedPatient;
 
+
+    public String getMail() {
+        return mail;
+    }
+
+    public String getTel() {
+        return tel;
+    }
 
     public Doctor(DBObject document) {
         this.id = (String)document.get("_id");
@@ -23,6 +33,8 @@ public class Doctor {
         this.hopital = (String)document.get("hospital");
         this.specialite = (String)document.get("speciality");
         this.service = (String)document.get("service");
+        this.mail = (String)document.get("mail");
+        this.tel = (String)document.get("tel");
         this.patientList= new ArrayList<>();
     }
 
@@ -66,5 +78,17 @@ public class Doctor {
 
     public List<Patient> getPatientList() {
         return patientList;
+    }
+
+    public String getHopital() {
+        return hopital;
+    }
+
+    public String getSpecialite() {
+        return specialite;
+    }
+
+    public String getService() {
+        return service;
     }
 }

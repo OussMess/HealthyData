@@ -195,4 +195,174 @@ li.collection-item.dismissable {
 .row .col.s9 {
     width: 90%;
 }
+.tabs.vertical{
+    height: auto;
+    white-space: normal;
+}
+.tabs.vertical .tab{
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+}
+.tab-content{
+    height: 400px;
+    width: 100%;
+}
+.tabs.vertical .tab a{
+    color:#00ACC1;
+}
+.tabs.vertical .tab a:hover,.tabs.vertical .tab a.active {
+    background-color:#00bfa5;
+    color:white;
+}
+.tabs.vertical .tab.disabled a,.tabs.vertical .tab.disabled a:hover {
+    color:rgba(102,147,153,0.7);
+}
+.tabs.vertical .indicator {
+    background-color:#009BAD;
+}
+.tabs.horizontal{
+    width: 100%;white-space: nowrap;
+}
+.tabs.vertical .tab{
+    width: auto;display: inline-block;
 
+}
+.tabs.vertical .indicator{
+    display:none;
+}
+.bottom{
+    margin-top: 18px;
+}
+
+
+
+
+.notification-trigger {
+    color: #333;
+    position: relative;
+    text-decoration: none;
+    float: right;
+    margin: 12px 30px 0 0;
+    font-size: 20px;
+    color: #333;
+}
+.notification-trigger .notification-num {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 16px;
+    display: block;
+    background: #d9232b;
+    color: #fff;
+    top: -4px;
+    right: -11px;
+    font-size: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .panel {
+        width: 300px;
+        right: 0;
+    }
+}
+.panel.visible {
+    display: block;
+}
+.panel .title {
+    position: absolute;
+    background-color: #fff;
+    color: #484846;
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: 1px solid #ddd;
+    z-index: 3;
+    width: 100%;
+}
+
+ul.notification-bar {
+    list-style: none;
+    padding: 60px 10px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+}
+
+.notification-bar li:not(:first-child) {
+    margin-top: 60px;
+}
+.notification-bar li div {
+    margin-left: 50px;
+    margin-top: -44px;
+    border: 1px solid #c7c6c2;
+    padding: 10px;
+    background-color: #eeede8;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #7b7a76;
+    box-shadow: 1px 1px 2px #dedcd4;
+}
+.notification-bar li i {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    border: 2px solid #00bfa5;
+    border-radius: 100%;
+    background-color: white;
+    color: #00bfa5;
+}
+.notification-bar li.unread i {
+    background-color: #00bfa5;
+    color: #fff;
+}
+.notification-bar li.unread div {
+    border-color: #00bfa5;
+    background-color: #00bfa5;
+    color: #fff;
+}
+.notification-bar li i:after {
+    content: '';
+    width: 40px;
+    height: 2px;
+    position: absolute;
+    background-color: #ddd;
+    margin-top: 8px;
+    z-index: -1;
+}
+.notification-bar:after {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: #deddd5;
+    position: absolute;
+    top: 0;
+    left: 28px;
+    z-index: -1;
+}
+.panel{
+    margin-top: 60px;
+    width: inherit;
+}
+.tabs .tab a{
+    font-size: 11px;
+}
+
+tbody {
+    display:block;
+    height:320px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+td, th{
+    text-align: center;
+}

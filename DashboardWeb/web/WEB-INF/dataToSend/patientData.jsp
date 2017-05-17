@@ -10,7 +10,7 @@
     <c:forEach items="${sessionScope.doctor.selectedPatient.sensorList}" var="sensor">
         <sensor id = "${sensor.id}" name = "${sensor.name}">
             <c:forEach var="measure" items="${sensor.measureList}">
-                <mesure>${measure.type}</mesure>
+                <mesure id="${measure.id}" seuil = "${measure.sill}"  unit = "${measure.unit}">${measure.type}</mesure>
             </c:forEach>
         </sensor>
     </c:forEach>
